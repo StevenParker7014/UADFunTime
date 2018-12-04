@@ -1,0 +1,43 @@
+<assembly
+	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+
+	<formats>
+		<format>zip</format> <!-- package format -->
+	</formats>
+	<id>${project.name}</id>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<fileSets>
+
+		<!-- Copy resources -->
+		<fileSet>
+			<directory>${project.basedir}/runtime</directory>
+			<outputDirectory/>
+			<filtered>false</filtered>
+			<excludes>
+				<exclude>start.bat</exclude>
+				<exclude>**/.gitignore</exclude>
+			</excludes>
+		</fileSet>    
+    <fileSet>
+      <directory>${project.basedir}/pshell</directory>
+      <outputDirectory>/pshell</outputDirectory>
+    </fileSet>
+
+	</fileSets>
+
+	<!-- Include and rename JAR file -->
+	<files>
+		<file>
+			<source>${project.build.directory}/${artifactId}-${version}.${packaging}</source>
+			<outputDirectory>/</outputDirectory>
+			<destName>${artifactId}.${packaging}</destName>
+		</file>
+		<file>
+			<source>${project.basedir}/runtime/start.bat</source>
+			<filtered>true</filtered>
+			<outputDirectory>/</outputDirectory>
+		</file>
+	</files>
+</assembly>

@@ -1,0 +1,51 @@
+/*
+	Installs the App
+
+*/
+
+//Unzip the package file
+FileFunction.unzip(
+	fileName : "${packageFileName}",
+	from : "${tempDirectory}",
+	to : "${tempDirectory}/uadfuntime"
+)
+
+
+
+//Copy App
+FileFunction.move(
+    fileName: "",
+    from: "${tempDirectory}uadfuntime/",
+    to: "${installDirectory}/apps/uadfuntime/"
+)
+
+// update Props
+Prop.update(
+	file: "${installDirectory}/apps/uadfuntime/application.properties",
+	props: [
+		"server.port": "${port}",
+		"server.servlet.context-path": "${context}"
+	]
+)
+
+// Update the dynamic properties for the Engine
+Prop.editPropertiesWithPrefix(
+ 	file: "${installDirectory}/apps/uadfuntime/application.properties",
+ 	props : _allProps,
+ 	prefixes : ["[fun]"]
+)
+
+
+// install the services
+Sys.exec(
+	cmd : "\"${installDirectory}/apps/uadfuntime/start.bat\" install"
+)
+
+// start the service
+Sys.exec(
+cmds : [
+		"sc",
+		"start",
+		"uadfun"
+		]
+)
