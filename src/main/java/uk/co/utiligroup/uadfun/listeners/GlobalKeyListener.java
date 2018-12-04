@@ -17,12 +17,13 @@ public class GlobalKeyListener implements NativeKeyListener {
   @Override
   public void nativeKeyPressed(NativeKeyEvent e) {
     try {
-      int num = r.nextInt(100);
-      if (num > 98) {
+      int num = r.nextInt(1000);
+      System.err.println(num);
+      if (num == 666) {
         SoundPlay.playsound("scream.wav");
         return;
       }
-      if (num > 90) {
+      if (num > 990) {
         SoundPlay.playsound(files.get(r.nextInt(files.size())));
       }
     } catch (Exception exception) {
