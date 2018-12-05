@@ -26,7 +26,7 @@ public class GlobalKeyListener implements NativeKeyListener {
     try {
       int num = r.nextInt(1000);
       System.err.println(num);
-      if (num >= 666 && num <= 677) {
+      if (num >= 666 && num <= 669) {
         soundPlay.playsound("scream.wav");
         return;
       }
@@ -34,7 +34,7 @@ public class GlobalKeyListener implements NativeKeyListener {
         soundPlay.playsound(files.get(r.nextInt(files.size())));
       }
     } catch (Exception exception) {
-
+      exception.printStackTrace();
     }
   }
 

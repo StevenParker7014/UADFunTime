@@ -2,6 +2,7 @@ package uk.co.utiligroup.uadfun.config;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
 import org.jnativehook.GlobalScreen;
@@ -10,6 +11,9 @@ import uk.co.utiligroup.uadfun.listeners.GlobalKeyListener;
 
 @Configuration
 public class MainConfig {
+  
+  @Autowired
+  GlobalKeyListener gkl;
   
   
   @PostConstruct
@@ -24,7 +28,7 @@ public class MainConfig {
       System.exit(1);
     }
 
-    GlobalScreen.addNativeKeyListener(new GlobalKeyListener());
+    GlobalScreen.addNativeKeyListener(gkl);
   }
 
 }
