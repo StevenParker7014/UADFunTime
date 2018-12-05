@@ -13,13 +13,13 @@ function setConnected(connected) {
 }
 
 function connect() {
-    var socket = new SockJS('/fun/gs-guide-websocket');
+    var socket = new SockJS('/fun/websocket');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
         setConnected(true);
         console.log('Connected: ' + frame);
         stompClient.subscribe('/topic/greetings', function (greeting) {
-            showGreeting(JSON.parse(greeting.body).content);
+            showGreeting(JSON.parse(greeting.body).message);
         });
     });
 }
@@ -33,11 +33,11 @@ function disconnect() {
 }
 
 function sendName() {
-    stompClient.send("/fun/app/hello", {}, JSON.stringify({'name': $("#name").val()}));
+    stompClient.send("/app/hello", {}, JSON.stringify({'name': $("#name").val()}));
 }
 
 function showGreeting(message) {
-    $("#greetings").append("<tr><td>" + message + "</td></tr>");
+    $("#greetings").prepend("<tr><td>" + message + "</td></tr>");
 }
 
 $(function () {
@@ -47,4 +47,34 @@ $(function () {
     $( "#connect" ).click(function() { connect(); });
     $( "#disconnect" ).click(function() { disconnect(); });
     $( "#send" ).click(function() { sendName(); });
+    
+    $("#toggleSound").click(function(){
+    	$.get("/fun/rest/sound", function(){});
+    });
+    
+    $( "#upload" ).click(function() { 
+    	var frm = $("#wallpaperForm");
+    	var formData = new FormData(frm[0]);
+    	$.ajax({
+            url: "/fun/rest/wallpaper",
+            type: 'POST',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+    });
+    $( "#sendMsg" ).click(function() { 
+    	var frm = $("#messageForm");
+    	var formData = new FormData(frm[0]);
+    	$.ajax({
+            url: "/fun/rest/message",
+            type: 'POST',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+    });
+    
 });

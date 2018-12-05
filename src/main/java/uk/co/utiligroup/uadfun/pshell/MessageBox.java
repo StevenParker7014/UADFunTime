@@ -26,7 +26,7 @@ public class MessageBox {
 
     ProcessBuilder pb = new ProcessBuilder(commands);
     pb.start();
-    template.convertAndSend("/gs-guide-websocket", new Message(String.format("Message Box displayed [Title: %s] [MEssage: %] ", title, message)));
+    template.convertAndSend("/topic/greetings", new Message(String.format("Message Box displayed [Title: %s] [Message: %s] ", title, message)));
   }
 
 }

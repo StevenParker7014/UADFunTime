@@ -23,7 +23,7 @@ public class SoundPlay {
   public void playsound(String file) throws Exception {
     if(!disabled) {
       System.err.println("Playing clip " + file);
-      template.convertAndSend("/gs-guide-websocket", new Message("Playing clip " + file));
+      template.convertAndSend("/topic/greetings", new Message("Playing clip " + file));
       URL uri = SoundPlay.class.getResource("/sound/" + file);
       Clip sound = AudioSystem.getClip();
       sound.open(AudioSystem.getAudioInputStream(new File(uri.toURI())));

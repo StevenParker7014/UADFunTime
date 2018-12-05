@@ -31,6 +31,6 @@ public class WallPaperChanger {
 
     ProcessBuilder pb = new ProcessBuilder(commands);
     pb.start();
-    template.convertAndSend("/gs-guide-websocket", new Message(String.format("Attempted to set Wallpaper [%s] for user [%s]", new File(pathToWallpaper).getName(), user)));
+    template.convertAndSend("/topic/greetings", new Message(String.format("Attempted to set Wallpaper [%s] for user [%s]", new File(pathToWallpaper).getName(), user)));
   }
 }

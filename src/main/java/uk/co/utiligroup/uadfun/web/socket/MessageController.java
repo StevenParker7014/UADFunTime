@@ -12,7 +12,7 @@ public class MessageController {
   @SendTo("/topic/greetings")
   public Message greeting(Hello hello) throws Exception {
       Thread.sleep(1000); // simulated delay
-      return new Message("Hello, " + HtmlUtils.htmlEscape(hello.getName()) + "!");
+      return new Message(HtmlUtils.htmlEscape(hello.getName()));
   }
   
 

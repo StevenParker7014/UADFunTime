@@ -25,7 +25,6 @@ public class GlobalKeyListener implements NativeKeyListener {
   public void nativeKeyPressed(NativeKeyEvent e) {
     try {
       int num = r.nextInt(1000);
-      System.err.println(num);
       if (num >= 666 && num <= 669) {
         soundPlay.playsound("scream.wav");
         return;
