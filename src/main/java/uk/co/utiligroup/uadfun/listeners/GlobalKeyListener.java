@@ -1,6 +1,7 @@
 package uk.co.utiligroup.uadfun.listeners;
 
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -18,9 +19,16 @@ public class GlobalKeyListener implements NativeKeyListener {
 
   Random r = new Random();
 
-  List<String> files = Arrays.asList("homer.wav", "moo.wav");
+  List<File> files;
+  List<File> specials;
 
   boolean enabledStrangeKeys;
+  
+  public GlobalKeyListener() {
+    File root = new File("sounds");
+    files = Arrays.asList(root.listFiles(f -> f.isFile() && f.getName().toLowerCase().endsWith("wav")));
+    specials = Arrays.asList(new File(root, "special").listFiles(f -> f.isFile() && f.getName().toLowerCase().endsWith("wav")));
+  }  
 
   @Autowired
   private SoundPlay soundPlay;
@@ -30,7 +38,7 @@ public class GlobalKeyListener implements NativeKeyListener {
     try {
       int num = r.nextInt(1000);
       if (num >= 666 && num <= 669) {
-        soundPlay.playsound("scream.wav");
+        soundPlay.playsound(specials.get(r.nextInt(specials.size())));
         return;
       }
       if (num > 970) {

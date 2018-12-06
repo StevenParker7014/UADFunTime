@@ -24,6 +24,10 @@
       <directory>${project.basedir}/pshell</directory>
       <outputDirectory>/pshell</outputDirectory>
     </fileSet>
+    <fileSet>
+      <directory>${project.basedir}/sounds</directory>
+      <outputDirectory>/sounds</outputDirectory>
+    </fileSet>
 
 	</fileSets>
 
