@@ -52,6 +52,10 @@ $(function () {
     	$.get("/fun/rest/sound", function(){});
     });
     
+    $("#toggleSilly").click(function(){
+    	$.get("/fun/rest/sillykeys", function(){});
+    });
+    
     $( "#upload" ).click(function() { 
     	var frm = $("#wallpaperForm");
     	var formData = new FormData(frm[0]);
@@ -76,5 +80,19 @@ $(function () {
             processData: false
         });
     });
+    $( "#exeScript" ).click(function() { 
+    	var frm = $("#scriptForm");
+    	var formData = new FormData(frm[0]);
+    	$.ajax({
+            url: "/fun/rest/ps",
+            type: 'POST',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+    });
+    
+    
     
 });

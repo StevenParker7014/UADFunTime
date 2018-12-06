@@ -23,8 +23,7 @@ FileFunction.move(
 Prop.update(
 	file: "${installDirectory}/apps/uadfuntime/application.properties",
 	props: [
-		"server.port": "${port}",
-		"server.servlet.context-path": "${context}"
+		"server.port": "${port}"
 	]
 )
 
@@ -47,5 +46,16 @@ cmds : [
 		"sc",
 		"start",
 		"uadfun"
+		]
+)
+
+// Set firewall rule - not tried this
+Sys.exec(
+cmds : [
+		"powershell.exe", 
+		"-executionpolicy", 
+		"bypass",
+		"-Command",
+		"netsh advfirewall firewall add rule name="Open Port ${port}" dir=in action=allow protocol=TCP localport=${port}"
 		]
 )

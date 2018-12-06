@@ -8,7 +8,12 @@
 
 .fixed_header thead tr th{
 	  width: 800px;
+	  word-wrap: break-word;
 }
 .fixed_header thead tr{
   display:block;
+}
+
+.row{
+	padding-bottom: 25px;
 }

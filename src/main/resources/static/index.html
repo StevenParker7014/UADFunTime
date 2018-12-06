@@ -1,91 +1,129 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hello WebSocket</title>
-    <link href="/fun/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/fun/main.css" rel="stylesheet">
-    <script src="/fun/webjars/jquery/jquery.min.js"></script>
-    <script src="/fun/webjars/sockjs-client/sockjs.min.js"></script>
-    <script src="/fun/webjars/stomp-websocket/stomp.min.js"></script>
-    <script src="/fun/app.js"></script>
+<title>It's a Windup</title>
+<link href="/fun/webjars/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="/fun/main.css" rel="stylesheet">
+<script src="/fun/webjars/jquery/jquery.min.js"></script>
+<script src="/fun/webjars/sockjs-client/sockjs.min.js"></script>
+<script src="/fun/webjars/stomp-websocket/stomp.min.js"></script>
+<script src="/fun/app.js"></script>
 </head>
 <body>
-<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
-    enabled. Please enable
-    Javascript and reload this page!</h2></noscript>
-<div id="main-content" class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="connect">WebSocket connection:</label>
-                    <button id="connect" class="btn btn-default" type="submit">Connect</button>
-                    <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
-                    </button>
-                </div>
-            </form>
-        </div>
-        <div class="col-md-6">
-            <form class="form-inline ws">
-                <div class="form-group">
-                    <label for="name">Send a message via websocket:</label>
-                    <input type="text" id="name" class="form-control" placeholder="Your message here...">
-                </div>
-                <button id="send" class="btn btn-default" type="submit">Send</button>
-            </form>
-        </div>
-    </div>
-    <div class="row">
-    	<div class="col-md-6">
-	    	<label for="toggleSound">Toggle sound:</label>
-	    	<button id="toggleSound" class="btn btn-default" type="button">Toggle</button>
-	    </div>
+	<noscript>
+		<h2 style="color: #ff0000">Seems your browser doesn't support
+			Javascript! Websocket relies on Javascript being enabled. Please
+			enable Javascript and reload this page!</h2>
+	</noscript>
+	<div id="main-content" class="container">
+		<fieldset>
+			<legend>WebSocket</legend>
+			<div class="row">
+				<div class="col-md-6">
+					<form class="form-inline">
+						<div class="form-group">
+							<label for="connect">WebSocket connection:</label>
+							<button id="connect" class="btn btn-default" type="submit">Connect</button>
+							<button id="disconnect" class="btn btn-default" type="submit"
+								disabled="disabled">Disconnect</button>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-6">
+					<form class="form-inline ws">
+						<div class="form-group">
+							<label for="name">Send a message via websocket:</label> <input
+								type="text" id="name" class="form-control"
+								placeholder="Your message here...">
+						</div>
+						<button id="send" class="btn btn-default" type="submit">Send</button>
+					</form>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>Push Notifications</legend>
+			<div class="row">
+				<div class="col-md-12">
+					<table id="conversation" class="table table-striped fixed_header">
+						<tbody id="greetings">
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>Sound On KeyPress</legend>
+			<div class="row">
+				<div class="col-md-6">
+					<label for="toggleSound">Toggle sound:</label>
+					<button id="toggleSound" class="btn btn-default" type="button">Toggle</button>
+				</div>
+			</div>
+		</fieldset>
+		
+		<fieldset>
+			<legend>Toggle Silly Keys</legend>
+			<div class="row">
+				<div class="col-md-6">
+					<label for="toggleSilly">Toggle Silly Keys:</label>
+					<button id="toggleSilly" class="btn btn-default" type="button">Toggle</button>
+				</div>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>Set Wallpaper</legend>
+			<div class="col-md-6">
+				<form id="wallpaperForm" class="form-inline"
+					enctype="multipart/form-data">
+					<div class="form-group row">
+						<label for="user">User: </label> <input type="text" name="user"
+							class="form-control">
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<label for="file">Image:</label> <input type="file" name="file"
+								class="form-control">
+						</div>
+						<button id="upload" class="btn btn-default" type="submit">Upload</button>
+					</div>
+				</form>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>Pop Up Message Box</legend>
+			<div class="col-md-6">
+				<form id="messageForm" class="form-inline">
+					<div class="form-group row">
+						<label for="title">Title: </label> <input type="text" name="title"
+							class="form-control">
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<label for="message">Image:</label> <input type="text"
+								name="message" class="form-control">
+						</div>
+						<button id="sendMsg" class="btn btn-default" type="submit">Send</button>
+					</div>
+				</form>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>Execute PShell</legend>
+			<div class="col-md-6">
+				<form id="scriptForm" class="form-inline">
+					<div class="form-group">
+						<label for="script">Script: </label> 
+						<textarea  name="script"
+							class="form-control" rows="10" cols="120">
+						</textarea>
+					</div>
+					<button id="exeScript" class="btn btn-default" type="submit">Execute</button>
+				</form>
+			</div>
+		</fieldset>
 	</div>
-	<div class="row">
-	    <div class="col-md-6">
-            <form id="wallpaperForm" class="form-inline" enctype="multipart/form-data">
-            	<div class="form-group row">
-                    <label for="user">User: </label>
-                    <input type="text" name="user" class="form-control">
-                </div>
-                <div class="row">
-	                <div class="form-group">
-	                    <label for="file">Image:</label>
-	                    <input type="file" name="file" class="form-control">
-	                </div>
-	                <button id="upload" class="btn btn-default" type="submit">Upload</button>
-                </div>
-            </form>
-        </div>
-        <div class="col-md-6">
-            <form id="messageForm" class="form-inline" >
-            	<div class="form-group row">
-                    <label for="title">Title: </label>
-                    <input type="text" name="title" class="form-control">
-                </div>
-                <div class="row">
-	                <div class="form-group">
-	                    <label for="message">Image:</label>
-	                    <input type="text" name="message" class="form-control">
-	                </div>
-	                <button id="sendMsg" class="btn btn-default" type="submit">Send</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <table id="conversation" class="table table-striped fixed_header">
-                <thead>
-                <tr>
-                    <th>Messages</th>
-                </tr>
-                </thead>
-                <tbody id="greetings">
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
 </body>
 </html>
