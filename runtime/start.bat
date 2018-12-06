@@ -25,7 +25,7 @@ GOTO :done
 
 :start
 @echo Starting %DISPLAY_NAME%
-java -jar %JAR_NAME%
+start javaw -jar %JAR_NAME%
 GOTO :done 
 
 :installService

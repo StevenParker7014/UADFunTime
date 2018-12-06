@@ -1,0 +1,36 @@
+2018-12-06 10:39:14.398  INFO 10800 --- [main] u.c.u.uadfun.UadFunTimeApplicationTests  : Starting UadFunTimeApplicationTests on UT-PC-203 with PID 10800 (started by parkers in C:\ide\Workspaces\UADFunTime)
+2018-12-06 10:39:14.399  INFO 10800 --- [main] u.c.u.uadfun.UadFunTimeApplicationTests  : No active profile set, falling back to default profiles: default
+2018-12-06 10:39:15.244  INFO 10800 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientInboundChannelExecutor'
+2018-12-06 10:39:15.256  INFO 10800 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2018-12-06 10:39:15.344  INFO 10800 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2018-12-06 10:39:15.408  INFO 10800 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'brokerChannelExecutor'
+2018-12-06 10:39:15.961  INFO 10800 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-06 10:39:16.046  INFO 10800 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2018-12-06 10:39:16.052  INFO 10800 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2018-12-06 10:39:16.054  INFO 10800 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2018-12-06 10:39:16.066  INFO 10800 --- [main] u.c.u.uadfun.UadFunTimeApplicationTests  : Started UadFunTimeApplicationTests in 1.882 seconds (JVM running for 2.532)
+2018-12-06 10:39:16.289  INFO 10800 --- [Thread-4] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2018-12-06 10:39:16.289  INFO 10800 --- [Thread-4] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2018-12-06 10:39:16.289  INFO 10800 --- [Thread-4] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2018-12-06 10:39:16.290  INFO 10800 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'brokerChannelExecutor'
+2018-12-06 10:39:16.291  INFO 10800 --- [Thread-4] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2018-12-06 10:39:16.295  INFO 10800 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2018-12-06 10:39:16.296  INFO 10800 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2018-12-06 10:45:57.052  INFO 12872 --- [main] u.c.u.uadfun.UadFunTimeApplicationTests  : Starting UadFunTimeApplicationTests on UT-PC-203 with PID 12872 (started by parkers in C:\ide\Workspaces\UADFunTime)
+2018-12-06 10:45:57.053  INFO 12872 --- [main] u.c.u.uadfun.UadFunTimeApplicationTests  : No active profile set, falling back to default profiles: default
+2018-12-06 10:45:57.883  INFO 12872 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientInboundChannelExecutor'
+2018-12-06 10:45:57.894  INFO 12872 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2018-12-06 10:45:57.978  INFO 12872 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2018-12-06 10:45:58.019  INFO 12872 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'brokerChannelExecutor'
+2018-12-06 10:45:58.545  INFO 12872 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2018-12-06 10:45:58.644  INFO 12872 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2018-12-06 10:45:58.652  INFO 12872 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2018-12-06 10:45:58.654  INFO 12872 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2018-12-06 10:45:58.666  INFO 12872 --- [main] u.c.u.uadfun.UadFunTimeApplicationTests  : Started UadFunTimeApplicationTests in 1.828 seconds (JVM running for 2.459)
+2018-12-06 10:45:58.922  INFO 12872 --- [Thread-3] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2018-12-06 10:45:58.922  INFO 12872 --- [Thread-3] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2018-12-06 10:45:58.922  INFO 12872 --- [Thread-3] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2018-12-06 10:45:58.923  INFO 12872 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'brokerChannelExecutor'
+2018-12-06 10:45:58.923  INFO 12872 --- [Thread-3] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2018-12-06 10:45:58.928  INFO 12872 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2018-12-06 10:45:58.928  INFO 12872 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientInboundChannelExecutor'

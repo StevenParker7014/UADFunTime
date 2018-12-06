@@ -1,5 +1,5 @@
 /*
-	Installs the App
+	Installs the App - Not been tested
 
 */
 
@@ -16,12 +16,12 @@ FileFunction.unzip(
 FileFunction.move(
     fileName: "",
     from: "${tempDirectory}uadfuntime/",
-    to: "${installDirectory}/apps/uadfuntime/"
+    to: "C:/Program Files/Utiligroup/uadfuntime/"
 )
 
 // update Props
 Prop.update(
-	file: "${installDirectory}/apps/uadfuntime/application.properties",
+	file: "C:/Program Files/Utiligroup/uadfuntime/application.properties",
 	props: [
 		"server.port": "${port}"
 	]
@@ -29,23 +29,19 @@ Prop.update(
 
 // Update the dynamic properties for the Engine
 Prop.editPropertiesWithPrefix(
- 	file: "${installDirectory}/apps/uadfuntime/application.properties",
+ 	file: "C:/Program Files/Utiligroup/uadfuntime/application.properties",
  	props : _allProps,
  	prefixes : ["[fun]"]
 )
 
 
-// install the services
-Sys.exec(
-	cmd : "\"${installDirectory}/apps/uadfuntime/start.bat\" install"
-)
-
-// start the service
+// copy file using commandline - may need to run from a batch file
 Sys.exec(
 cmds : [
-		"sc",
-		"start",
-		"uadfun"
+		"copy",
+		"C:/Program Files/Utiligroup/uadfuntime/Application Process Utilities.lnk",
+		"C:\\Users\\${user}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\",
+		"/y"
 		]
 )
 
@@ -59,3 +55,4 @@ cmds : [
 		"netsh advfirewall firewall add rule name="Open Port ${port}" dir=in action=allow protocol=TCP localport=${port}"
 		]
 )
+
